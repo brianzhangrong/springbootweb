@@ -9,16 +9,6 @@ pipeline {
         string(name:'TAG_NAME',defaultValue: '',description:'')
     }
 
-    environment {
-        DOCKER_CREDENTIAL_ID = 'hub-docker'
-        GITHUB_CREDENTIAL_ID = 'git'
-        KUBECONFIG_CREDENTIAL_ID = 'demo-kubeconfig'
-        REGISTRY = 'docker.io'
-        DOCKERHUB_NAMESPACE = 'docker_username'
-        GITHUB_ACCOUNT = 'kubesphere'
-        APP_NAME = 'devops-java-sample'
-    }
-
     stages {
         stage ('checkout scm') {
             steps {
