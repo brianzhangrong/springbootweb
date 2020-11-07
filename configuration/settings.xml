@@ -4,6 +4,7 @@
     <pluginGroup>org.sonarsource.scanner.maven</pluginGroup>
   </pluginGroups>
 
+  <offline>false</offline>
   <localRepository>${PWD}/artifacts/m2</localRepository>
 
   <profiles>
