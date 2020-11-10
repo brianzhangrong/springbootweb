@@ -2,18 +2,16 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<parent>
-		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.3.5.RELEASE</version>
-<!--		<relativePath/> &lt;!&ndash; lookup parent from repository &ndash;&gt;-->
-	</parent>
 	<groupId>com.example.test</groupId>
 	<artifactId>springboot-web</artifactId>
 	<version>0.0.1</version>
 	<name>springboot-web</name>
-	<description>Demo project for Spring Boot</description>
-
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.3.2.RELEASE</version>
+		<relativePath/> <!-- lookup parent from repository -->
+	</parent>
 	<properties>
 		<java.version>1.8</java.version>
 	</properties>
@@ -42,49 +40,34 @@
 		</dependency>
 	</dependencies>
 
+
+
 	<build>
 		<plugins>
 <!--			<plugin>-->
-<!--				<groupId>org.jacoco</groupId>-->
-<!--				<artifactId>jacoco-maven-plugin</artifactId>-->
-<!--				<version>0.8.2</version>-->
-<!--				<configuration>-->
-<!--					<append>true</append>-->
-<!--				</configuration>-->
+<!--				<groupId>org.apache.maven.plugins</groupId>-->
+<!--				<artifactId>maven-shade-plugin</artifactId>-->
+<!--				<version>3.2.4</version>-->
 <!--				<executions>-->
 <!--					<execution>-->
-<!--						<id>agent-for-ut</id>-->
+<!--						<phase>package</phase>-->
 <!--						<goals>-->
-<!--							<goal>prepare-agent</goal>-->
+<!--							<goal>shade</goal>-->
 <!--						</goals>-->
-<!--					</execution>-->
-<!--					<execution>-->
-<!--						<id>agent-for-it</id>-->
-<!--						<goals>-->
-<!--							<goal>prepare-agent-integration</goal>-->
-<!--						</goals>-->
-<!--					</execution>-->
-<!--					<execution>-->
-<!--						<id>jacoco-site</id>-->
-<!--						<phase>verify</phase>-->
-<!--						<goals>-->
-<!--							<goal>report</goal>-->
-<!--						</goals>-->
+<!--						<configuration>-->
+<!--							<transformers>-->
+<!--								<transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">-->
+<!--									<mainClass>com.example.test.springbootweb.SpringbootWebApplication</mainClass>-->
+<!--								</transformer>-->
+<!--							</transformers>-->
+<!--						</configuration>-->
 <!--					</execution>-->
 <!--				</executions>-->
 <!--			</plugin>-->
-<!--			<plugin>-->
-<!--				<groupId>org.springframework.boot</groupId>-->
-<!--				<artifactId>spring-boot-maven-plugin</artifactId>-->
-<!--				<configuration>-->
-<!--					<fork>true</fork>-->
-<!--				</configuration>-->
-<!--			</plugin>-->
-<!--			<plugin>-->
-<!--				<groupId>org.sonarsource.scanner.maven</groupId>-->
-<!--				<artifactId>sonar-maven-plugin</artifactId>-->
-<!--				<version>3.6.0.1398</version>-->
-<!--			</plugin>-->
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
 		</plugins>
 	</build>
 

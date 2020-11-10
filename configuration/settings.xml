@@ -22,7 +22,7 @@
           </releases>
           <!-- 是否开启快照版构件下载 -->
           <snapshots>
-            <enabled>false</enabled>
+            <enabled>true</enabled>
           </snapshots>
         </repository>
       </repositories>
