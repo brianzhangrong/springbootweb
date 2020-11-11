@@ -7,6 +7,8 @@ import lombok.extern.slf4j.Slf4j;
 import lombok.extern.slf4j.XSlf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -15,11 +17,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 public class Testcontroller {
     Logger  log = LoggerFactory.getLogger("Testcontroller");
+
+    public final static String VERSION="5";
     @GetMapping("/test")
     @TestTrace
     public String test(){
 
-        log.info("this is test version v444444");
-        return "hello,v444444";
+        log.info("this is test version v{}",VERSION);
+        return "v"+VERSION;
     }
 }
