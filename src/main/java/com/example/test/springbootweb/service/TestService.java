@@ -1,5 +1,6 @@
 package com.example.test.springbootweb.service;
 
+import com.example.test.springbootweb.constant.Version;
 import com.example.test.springbootweb.dao.TestDao;
 import javax.annotation.Resource;
 import org.springframework.stereotype.Service;
@@ -11,6 +12,6 @@ public class TestService {
     TestDao testDao;
 
     public String version(){
-        return "service-V"+"1"+","+testDao.version();
+        return "serviceV-"+ Version.VERSION+","+testDao.version();
     }
 }
