@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class Testcontroller {
     Logger  log = LoggerFactory.getLogger("Testcontroller");
 
-    public final static String VERSION="9";
+    public final static String VERSION="10";
     @GetMapping("/test")
     @TestTrace
     public String test(){
