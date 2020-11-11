@@ -64,6 +64,12 @@
 			<artifactId>opentracing-spring-cloud-starter</artifactId>
 			<version>0.2.0</version>
 		</dependency>
+
+		<dependency>
+			<groupId>io.opentracing.contrib</groupId>
+			<artifactId>opentracing-spring-jaeger-web-starter</artifactId>
+			<version>3.1.1</version>
+		</dependency>
 		<dependency>
 			<groupId>io.jaegertracing</groupId>
 			<artifactId>jaeger-client</artifactId>
@@ -74,6 +80,11 @@
 			<artifactId>guava</artifactId>
 			<version>30.0-jre</version>
 		</dependency>
+<!--		<dependency>-->
+<!--			<groupId>com.uber.jaeger</groupId>-->
+<!--			<artifactId>jaeger-b3</artifactId>-->
+<!--			<version>0.26.0</version>-->
+<!--		</dependency>-->
 	</dependencies>
 
 
