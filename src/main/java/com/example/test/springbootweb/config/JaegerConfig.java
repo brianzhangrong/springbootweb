@@ -11,7 +11,7 @@ public class JaegerConfig {
     public io.opentracing.Tracer tracer() {
         io.jaegertracing.Configuration config = new io.jaegertracing.Configuration("springbootweb");
         io.jaegertracing.Configuration.SenderConfiguration sender = new io.jaegertracing.Configuration.SenderConfiguration();
-        sender.withEndpoint("jaeger-collector.istio-system:14267");
+        sender.withEndpoint("jaeger-collector.istio-system.svc.cluster.local:14267");
         config.withSampler(new io.jaegertracing.Configuration.SamplerConfiguration().withType("const").withParam(1));
         config.withReporter(new io.jaegertracing.Configuration.ReporterConfiguration().withSender(sender).withMaxQueueSize(10000));
         return config.getTracer();
