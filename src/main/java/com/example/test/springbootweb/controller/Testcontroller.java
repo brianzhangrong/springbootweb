@@ -3,6 +3,8 @@ package com.example.test.springbootweb.controller;
 
 
 import com.example.test.springbootweb.config.TestTrace;
+import com.example.test.springbootweb.service.TestService;
+import javax.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
 import lombok.extern.slf4j.XSlf4j;
 import org.slf4j.Logger;
@@ -17,13 +19,14 @@ import org.springframework.web.bind.annotation.RestController;
 
 public class Testcontroller {
     Logger  log = LoggerFactory.getLogger("Testcontroller");
-
     public final static String VERSION="10";
+    @Resource
+    TestService testService;
     @GetMapping("/test")
     @TestTrace
     public String test(){
 
         log.info("this is test version v{}",VERSION);
-        return "v"+VERSION;
+        return "v"+VERSION+","+testService.version();
     }
 }
