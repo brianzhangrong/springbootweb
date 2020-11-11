@@ -22,6 +22,11 @@ public class Testcontroller {
     Logger  log = LoggerFactory.getLogger("Testcontroller");
     @Resource
     TestService testService;
+
+    @GetMapping("/health")
+    public String health(){
+        return "ok";
+    }
     @GetMapping("/test")
     @TestTrace
     public String test(){
