@@ -28,10 +28,18 @@ public class Testcontroller {
         return "ok";
     }
     @GetMapping("/test")
-    @TestTrace
     public String test(){
 
         log.info("this is test version v{}", Version.VERSION);
         return "v"+Version.VERSION+","+testService.version();
+    }
+
+    @GetMapping("/error")
+    public String exception(){
+          int sum=0;
+         for(int i=0;i<10;i++){
+             sum+= 1/(5-i);
+         }
+         return  sum+"";
     }
 }

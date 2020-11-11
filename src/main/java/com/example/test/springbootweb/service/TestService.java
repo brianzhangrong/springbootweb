@@ -11,9 +11,10 @@ import org.springframework.stereotype.Service;
 @Service
 public class TestService {
     Logger log = LoggerFactory.getLogger("TestService");
+
     @Resource
     TestDao testDao;
-    @TestTrace
+
     public String version(){
         log.info("service {}",Version.VERSION);
         return "serviceV-"+ Version.VERSION+","+testDao.version();

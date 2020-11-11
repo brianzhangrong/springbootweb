@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 public class TestDao {
 
     Logger log = LoggerFactory.getLogger("TestDao");
-    @TestTrace
+
     public String version(){
         log.info("dao {}",Version.VERSION);
         return "testDao-v"+ Version.VERSION;
