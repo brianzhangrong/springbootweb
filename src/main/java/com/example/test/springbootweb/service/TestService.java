@@ -36,7 +36,7 @@ public class TestService {
         Response execute = null;
         try {
             execute = getCall.execute();
-            if(!execute.isSuccessful()){
+            if(execute.isSuccessful()){
                 return "serviceV-"+ Version.VERSION+","+testDao.version()+"--->"+execute.body().string();
             }
         } catch (IOException e) {
