@@ -1,5 +1,6 @@
 package com.example.test.springbootweb.service;
 
+import com.example.test.springbootweb.config.TestTrace;
 import com.example.test.springbootweb.constant.Version;
 import com.example.test.springbootweb.dao.TestDao;
 import javax.annotation.Resource;
@@ -10,7 +11,7 @@ public class TestService {
 
     @Resource
     TestDao testDao;
-
+    @TestTrace
     public String version(){
         return "serviceV-"+ Version.VERSION+","+testDao.version();
     }
