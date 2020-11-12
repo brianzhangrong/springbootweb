@@ -35,13 +35,7 @@ public class TestService {
 
     public String version(){
         log.info("service {}",Version.VERSION);
-        String ret ="123";
-        LogDTO logDTO=new LogDTO();
-        logDTO.setLog(ret);
-        int i=logDTOMapper.insert(logDTO);
-        if(i<=0){
-            log.error("insert error:{}",ret);
-        }
+
         Request getRequest =
                 new Request.Builder().get().url("http://web2:8080/test").build();
         Call getCall = okHttpClient.newCall(getRequest);
@@ -50,7 +44,13 @@ public class TestService {
             execute = getCall.execute();
 
             if(execute.isSuccessful()){
-
+                String ret =execute.body().string();
+                LogDTO logDTO=new LogDTO();
+                logDTO.setLog(ret);
+                int i=logDTOMapper.insert(logDTO);
+                if(i<=0){
+                    log.error("insert error:{}",ret);
+                }
                 return "serviceV-"+ Version.VERSION+","+testDao.version()+"--->"+ret;
             }
         } catch (IOException e) {
