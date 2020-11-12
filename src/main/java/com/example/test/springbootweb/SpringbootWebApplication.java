@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-@MapperScan("com.example.test.springbootweb")
+@MapperScan("com.example.test.springbootweb.log")
 public class SpringbootWebApplication {
 
 	public static void main(String[] args) {
