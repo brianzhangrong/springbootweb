@@ -19,8 +19,8 @@
     where id = #{id,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="com.example.test.springbootweb.log.domain.LogDTO" >
-    insert into t_log (id, log)
-    values (#{id,jdbcType=INTEGER}, #{log,jdbcType=VARCHAR})
+    insert into t_log ( log)
+    values ( #{log,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.example.test.springbootweb.log.domain.LogDTO" >
     insert into t_log
