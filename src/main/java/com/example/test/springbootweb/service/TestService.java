@@ -3,6 +3,8 @@ package com.example.test.springbootweb.service;
 import com.example.test.springbootweb.config.TestTrace;
 import com.example.test.springbootweb.constant.Version;
 import com.example.test.springbootweb.dao.TestDao;
+import com.example.test.springbootweb.log.domain.LogDTO;
+import com.example.test.springbootweb.log.mapper.LogDTOMapper;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 import javax.annotation.Resource;
@@ -22,6 +24,8 @@ public class TestService {
 
     @Resource
     TestDao testDao;
+    @Resource
+    LogDTOMapper logDTOMapper;
     private static OkHttpClient okHttpClient = new OkHttpClient.Builder()
             .connectTimeout(5, TimeUnit.SECONDS)
             .readTimeout(60, TimeUnit.SECONDS)
@@ -37,7 +41,14 @@ public class TestService {
         try {
             execute = getCall.execute();
             if(execute.isSuccessful()){
-                return "serviceV-"+ Version.VERSION+","+testDao.version()+"--->"+execute.body().string();
+                String ret =execute.body().string();
+                LogDTO logDTO=new LogDTO();
+                logDTO.setLog(ret);
+                int i=logDTOMapper.insert(logDTO);
+                if(i<=0){
+                    log.error("insert error:{}",ret);
+                }
+                return "serviceV-"+ Version.VERSION+","+testDao.version()+"--->"+ret;
             }
         } catch (IOException e) {
 
