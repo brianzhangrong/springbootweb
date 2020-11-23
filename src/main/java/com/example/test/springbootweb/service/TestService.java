@@ -24,8 +24,8 @@ public class TestService {
 
     @Resource
     TestDao testDao;
-    @Resource
-    LogDTOMapper logDTOMapper;
+//    @Resource
+//    LogDTOMapper logDTOMapper;
 
     private static OkHttpClient okHttpClient = new OkHttpClient.Builder()
             .connectTimeout(5, TimeUnit.SECONDS)
