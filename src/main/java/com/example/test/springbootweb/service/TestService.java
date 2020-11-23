@@ -45,12 +45,12 @@ public class TestService {
 
             if(execute.isSuccessful()){
                 String ret =execute.body().string();
-                LogDTO logDTO=new LogDTO();
-                logDTO.setLog(ret);
-                int i=logDTOMapper.insert(logDTO);
-                if(i<=0){
-                    log.error("insert error:{}",ret);
-                }
+//                LogDTO logDTO=new LogDTO();
+//                logDTO.setLog(ret);
+//                int i=logDTOMapper.insert(logDTO);
+//                if(i<=0){
+//                    log.error("insert error:{}",ret);
+//                }
                 return "serviceV-"+ Version.VERSION+","+testDao.version()+"--->"+ret;
             }
         } catch (IOException e) {
